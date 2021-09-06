@@ -33,7 +33,7 @@ const validate = values => {
     if (!values[key]) errors[key] = "Введено некорректное значение"
   })
 
-  if (!/^[А-Яа-яA-Za-z -]$/.test(values.name)) errors.name = "Введено некорректное значение"
+  if (!/^[А-Яа-яA-Za-z\s-]{1,}$/.test(values.name)) errors.name = "Введено некорректное значение"
   else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) errors.email = "Введено некорректное значение"
   else if (!/^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(values.phoneNumber)) errors.phoneNumber = "Введено некорректное значение"
 
